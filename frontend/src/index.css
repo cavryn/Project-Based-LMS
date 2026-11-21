@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+:root {
+  --g-950: #0A2E17;
+  --g-900: #14532D;
+  --g-800: #166534;
+  --g-700: #15803D;
+  --g-400: #4ADE80;
+  --g-300: #86EFAC;
+  --g-100: #DCFCE7;
+  --white: #FFFFFF;
+  --black: #0A0E0B;
+
+  --bg: #E9F0E4;
+  --surface: #FFFFFF;
+  --surface-2: #F4F8F1;
+  --ink: #0E1A12;
+  --muted: #46574B;
+  --line: #0E1A12;
+  --shadow: #0E1A12;
+  
+  --primary: var(--g-800);
+  --on-primary: #FFFFFF;
+  --primary-hover: var(--g-700);
+  --primary-soft: var(--g-100);
+  --primary-text: var(--g-900);
+  
+  --warn: #FFD23F;
+  --on-warn: #0E1A12;
+  --danger: #C62F2F;
+  --on-danger: #FFFFFF;
+  --focus: #1D4ED8;
+
+  --font-display: 'Archivo', sans-serif;
+  --font-body: 'Public Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 4px;
+}
+
+[data-theme="dark"] {
+  --bg: #0A0E0B;
+  --surface: #141A15;
+  --surface-2: #1B231D;
+  --ink: #EEF4EA;
+  --muted: #A3B2A6;
+  --line: #EEF4EA;
+  --shadow: #C5D4C8;
+  
+  --primary: var(--g-400);
+  --on-primary: #0A0E0B;
+  --primary-hover: var(--g-300);
+  --primary-soft: var(--g-950);
+  --primary-text: var(--g-400);
+  
+  --danger: #FF7070;
+  --on-danger: #0A0E0B;
+  --focus: #FFD23F;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Neobrutalist Elements */
+.neo-card {
+  background-color: var(--surface);
+  border: 3px solid var(--line);
+  box-shadow: 6px 6px 0 var(--shadow);
+  border-radius: var(--radius);
+}
+
+.neo-btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  border: 3px solid var(--line);
+  background-color: var(--surface);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--shadow);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.08s, box-shadow 0.08s, background-color 0.08s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.neo-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--shadow);
+}
+
+.neo-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--shadow);
+}
+
+.neo-btn-primary {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+.neo-btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.neo-btn-warn {
+  background-color: var(--warn);
+  color: var(--on-warn);
+}
+
+.neo-btn-danger {
+  background-color: var(--danger);
+  color: var(--on-danger);
+}
+
+.neo-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border: 2px solid var(--line);
+  background-color: var(--surface-2);
+  color: var(--ink);
+  border-radius: 3px;
+}
