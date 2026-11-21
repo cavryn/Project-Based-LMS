@@ -1,0 +1,16 @@
+{
+  "name": "project-based-lms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Project-Based Learning Management System with Digital Rubrics & Peer Assessment",
+  "scripts": {
+    "dev": "concurrently -k -n \"BACKEND,FRONTEND\" -c \"blue.bold,green.bold\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm --prefix backend run start:dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix backend run build && npm --prefix frontend run build",
+    "install:all": "npm install && npm --prefix backend install --legacy-peer-deps && npm --prefix frontend install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

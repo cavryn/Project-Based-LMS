@@ -54,7 +54,30 @@ docker compose up --build
 
 ---
 
-### Opsi 2: Menjalankan Lokal (Tanpa Docker untuk Frontend & Backend)
+### Opsi 2: Menjalankan Lokal Sekaligus (Root `npm run dev`)
+Cukup jalankan satu perintah dari folder utama (*root*):
+
+```bash
+# 1. Pastikan database PostgreSQL aktif (lokal atau via docker):
+docker compose up -d postgres
+
+# 2. Jalankan Backend & Frontend secara bersamaan:
+npm run dev
+
+# Akses aplikasi:
+# Frontend : http://localhost:5173
+# Backend  : http://localhost:3000/api
+```
+
+> **Perintah Tambahan:**
+> - `npm run dev:backend` : Menjalankan backend saja
+> - `npm run dev:frontend` : Menjalankan frontend saja
+> - `npm run build` : Mem-build backend & frontend sekaligus
+> - `npm run install:all` : Menginstal dependensi root, backend, dan frontend
+
+---
+
+### Opsi 3: Menjalankan Manual di Masing-masing Folder
 
 #### 1. Setup Database (PostgreSQL)
 Pastikan PostgreSQL aktif lokal di port 5432 dengan database bernama `pbl_lms`, atau jalankan servicenya via Docker:
