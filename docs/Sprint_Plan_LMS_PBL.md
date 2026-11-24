@@ -1,103 +1,95 @@
-# 🗂️ Sprint Plan — 1 Sprint = 3 Epic (4 Sprint Total)
+# 🗂️ Sprint Plan — 5 Sprint (E00–E11)
 **Proyek:** Pengembangan Sistem Manajemen Pembelajaran Berbasis Proyek dengan Rubrik Penilaian Digital dan Peer Assessment Berbasis Web  
-**PM:** Karina Cahyasari | **Versi:** 3.0 (3 Epics per Sprint) | **Tanggal:** 21 November 2026
-
-> [!IMPORTANT]
-> Sesuai arahan, struktur pengerjaan dibagi menjadi **1 Sprint = 3 Epic utuh**. Tidak ada epic yang dipotong atau menyeberang antar sprint.  
-> Karena terdapat **12 Epic (E00–E11)**, maka keseluruhan proyek diselesaikan dalam **4 Sprint**.
+**PM:** Karina Cahyasari | **Versi:** 4.0 (5-Sprint Plan) | **Tanggal:** 23 November 2026
 
 ---
 
-## ⚙️ Tech Stack & Keputusan Arsitektur
+## ⚙️ Tech Stack & Strategi Tim
 
 | Komponen | Keputusan |
 |----------|-----------|
-| **Backend** | TypeScript + NestJS |
-| **Frontend** | React / Vue |
-| **Database** | PostgreSQL |
-| **ORM** | MikroORM |
-| **Containerisasi** | Docker (`docker-compose`) |
-| **Branching Strategy** | `main` (stable), `be` (backend), `fe` (frontend) |
-| **CI/CD** | ⏸️ Di-hold (belum ada rencana deploy ke production) |
+| **Backend** | TypeScript + NestJS + MikroORM (PostgreSQL) |
+| **Frontend** | React (Vite + TypeScript) + Tailwind CSS v4 (Neobrutalism Design) |
+| **Database** | PostgreSQL 16 (Docker) |
+| **Branching** | `main` (stable), `BE` (jobdesk backend), `FE` (jobdesk frontend) |
+| **Eksekusi Dev** | `npm run dev` (root concurrently) |
 
 ---
 
-## 📊 Ringkasan 4 Sprint (3 Epic per Sprint)
+## 📊 Ringkasan 5 Sprint
 
-| Sprint | Daftar Epic yang Dikerjakan | Fokus & Tema Sprint | Jml PB | Total SP |
-|:------:|-----------------------------|---------------------|:------:|:--------:|
-| **Sprint 1** | **E00** · Setup & Fondasi Teknis<br>**E11** · Validasi Kebutuhan & Dok.<br>**E01** · Pengguna & Hak Akses | **Fondasi, Validasi & Autentikasi**<br>Setup docker/repo/DB, riset/wawancara dosen, login & RBAC | 11 PB | 40 SP |
-| **Sprint 2** | **E02** · Kelas & Templat Proyek<br>**E03** · Pembentukan Kelompok<br>**E04** · Tahapan & Pemantauan Progres | **Struktur Kelas, Tim & Progres**<br>Template PBL, pembagian tim (3 metode), submit tugas & dasbor | 14 PB | 57 SP |
-| **Sprint 3** | **E06** · Rubrik & Penilaian Kelompok<br>**E07** · Peer Assessment<br>**E05** · Ruang Kolaborasi Kelompok | **Evaluasi, Penilaian & Kolaborasi**<br>Rubrik digital, peer assessment anonim anti-duplikasi, forum tim | 11 PB | 41 SP |
-| **Sprint 4** | **E08** · Nilai Akhir Individu<br>**E09** · Ekspor Rekapitulasi<br>**E10** · Kualitas, Keamanan & Pengujian | **Kalkulasi Akhir, Ekspor & Hardening**<br>Formula faktor pengali, publikasi nilai, CSV export, E2E test & walkthrough | 12 PB | 47 SP |
-| **TOTAL** | **12 Epic Utuh** | **Semua fitur PRD terselesaikan** | **48 PB** | **185 SP** |
+| Sprint | Epic yang Dikerjakan | Fokus & Tema Sprint | Jml PB | Total SP |
+|:------:|----------------------|---------------------|:------:|:--------:|
+| **Sprint 1** | **E00** · Setup & Fondasi Teknis<br>**E01** · Pengguna & Hak Akses | **Fondasi, Arsitektur & Autentikasi**<br>Setup repo/docker, skema DB awal, login lokal, session, dan RBAC (Admin, Dosen, Mahasiswa) | 7 PB | **31 SP** |
+| **Sprint 2** | **E02** · Kelas & Templat Proyek<br>**E03** · Pembentukan Kelompok<br>**E04** · Tahapan & Pemantauan Progres | **Pengelolaan Kelas, Kelompok & Progres**<br>Template PBL, 3 metode kelompok (acak/mandiri/manual), penyerahan milestone & dasbor pemantauan dosen | 14 PB | **57 SP** |
+| **Sprint 3** | **E05** · Ruang Kolaborasi Kelompok<br>**E06** · Rubrik & Penilaian Kelompok<br>**E07** · Peer Assessment | **Kolaborasi, Rubrik & Peer Review**<br>Forum diskusi tim, rubrik digital (bobot 100%), penilaian luaran, dan modul peer assessment anonim anti-duplikasi | 11 PB | **41 SP** |
+| **Sprint 4** | **E08** · Nilai Akhir Individu<br>**E09** · Ekspor Rekapitulasi | **Kalkulasi Nilai Akhir & Pelaporan**<br>Formula faktor pengali kontribusi, review & adjustment dosen, publikasi nilai, dan ekspor CSV | 6 PB | **25 SP** |
+| **Sprint 5** | **E10** · Kualitas, Keamanan & Pengujian<br>**E11** · Validasi Kebutuhan & Dokumentasi | **Hardening, Pengujian E2E & Validasi Akhir**<br>Unit testing aturan bisnis, security RBAC test, concurrency test, walkthrough usability, dan dokumentasi PRD final disetujui dosen | 10 PB | **31 SP** |
+| **TOTAL** | **12 Epic Utuh** | **Semua kebutuhan PRD terpenuhi tanpa pemotongan epic** | **48 PB** | **185 SP** |
 
 ---
 
-## 🗺️ Roadmap Visual Alur 4 Sprint
+## 🗺️ Roadmap Alur 5 Sprint
 
 ```mermaid
 flowchart TD
-    subgraph S1["🚀 SPRINT 1: Fondasi, Validasi & Autentikasi (40 SP)"]
+    subgraph S1["🚀 SPRINT 1: Fondasi & Autentikasi (31 SP)"]
         direction LR
-        E00["E00: Fondasi Teknis\n(PB-01, PB-02, PB-03)"]
-        E11["E11: Validasi & Dok.\n(PB-45, PB-46, PB-47, PB-48)"]
-        E01["E01: Pengguna & Hak Akses\n(PB-04, PB-05, PB-06, PB-07)"]
-        E00 --> E11 --> E01
+        E00["E00: Fondasi Teknis\n(11 SP)"]
+        E01["E01: Pengguna & Hak Akses\n(20 SP)"]
+        E00 --> E01
     end
 
-    subgraph S2["🏫 SPRINT 2: Kelas, Kelompok & Tahapan Progres (57 SP)"]
+    subgraph S2["🏫 SPRINT 2: Kelas, Kelompok & Milestone (57 SP)"]
         direction LR
-        E02["E02: Kelas & Templat\n(PB-08, PB-09)"]
-        E03["E03: Pembentukan Kelompok\n(PB-10, PB-11, PB-12, PB-13, PB-14)"]
-        E04["E04: Tahapan & Dasbor\n(PB-15, PB-16, PB-17, PB-18, PB-19, PB-20, PB-21)"]
+        E02["E02: Kelas & Templat\n(8 SP)"]
+        E03["E03: Pembentukan Kelompok\n(19 SP)"]
+        E04["E04: Tahapan & Dasbor\n(30 SP)"]
         E02 --> E03 --> E04
     end
 
-    subgraph S3["⭐ SPRINT 3: Rubrik, Peer Assessment & Kolaborasi (41 SP)"]
+    subgraph S3["⭐ SPRINT 3: Kolaborasi, Rubrik & Peer Review (41 SP)"]
         direction LR
-        E06["E06: Rubrik & Penilaian\n(PB-23, PB-24, PB-25, PB-26, PB-27)"]
-        E07["E07: Peer Assessment\n(PB-28, PB-29, PB-30, PB-31, PB-32)"]
-        E05["E05: Forum Kolaborasi\n(PB-22)"]
-        E06 --> E07 --> E05
+        E05["E05: Forum Kolaborasi\n(5 SP)"]
+        E06["E06: Rubrik & Penilaian\n(17 SP)"]
+        E07["E07: Peer Assessment\n(19 SP)"]
+        E05 --- E06 --> E07
     end
 
-    subgraph S4["🏆 SPRINT 4: Nilai Akhir, Ekspor & Pengujian Total (47 SP)"]
+    subgraph S4["🏆 SPRINT 4: Nilai Akhir & Ekspor (25 SP)"]
         direction LR
-        E08["E08: Nilai Akhir Individu\n(PB-33, PB-34, PB-35, PB-36)"]
-        E09["E09: Ekspor Rekap CSV\n(PB-37, PB-38)"]
-        E10["E10: Kualitas & Pengujian\n(PB-39, PB-40, PB-41, PB-42, PB-43, PB-44)"]
-        E08 --> E09 --> E10
+        E08["E08: Nilai Akhir Individu\n(19 SP)"]
+        E09["E09: Ekspor Rekap CSV\n(6 SP)"]
+        E08 --> E09
     end
 
-    S1 ==> S2 ==> S3 ==> S4
+    subgraph S5["🧪 SPRINT 5: Pengujian Mutu & Validasi Final (31 SP)"]
+        direction LR
+        E10["E10: Kualitas & Testing\n(22 SP)"]
+        E11["E11: Validasi Kebutuhan & Dok.\n(9 SP)"]
+        E10 --- E11
+    end
+
+    S1 ==> S2 ==> S3 ==> S4 ==> S5
 ```
 
 ---
 
-## 🚀 SPRINT 1 — Fondasi, Validasi & Autentikasi
-**Epic yang Diselesaikan:** E00 (Setup & Fondasi Teknis), E11 (Validasi Kebutuhan & Dok.), E01 (Pengguna & Hak Akses)  
-**Total Beban:** 11 User Stories | **40 Story Points**
+## 🚀 SPRINT 1 — Fondasi, Arsitektur & Autentikasi
+**Epic:** E00 (Setup & Fondasi Teknis) + E01 (Pengguna & Hak Akses)  
+**Total Beban:** 7 User Stories | **31 Story Points**
 
 ### Sprint Goal
-> Menyiapkan repositori & container Docker, merancang skema ERD di PostgreSQL via MikroORM, melakukan wawancara validasi dosen & studi formula kontribusi, serta menerapkan autentikasi lokal dan RBAC (Dosen, Mahasiswa, Admin).
+> Repositori dan docker dev environment aktif, skema ERD PostgreSQL dirancang via MikroORM, dan sistem autentikasi lokal terenkripsi dengan RBAC (Dosen, Mahasiswa, Admin) ditegakkan di backend dan frontend.
 
 ### Backlog Sprint 1
 
 #### 📦 Epic E00 — Setup & Fondasi Teknis (11 SP)
 | ID | User Story | Role | SP | Pri. | Acceptance Criteria |
 |----|------------|------|:--:|:----:|---------------------|
-| **PB-01** | Setup repositori, struktur proyek, dan docker dev/staging | Tim Dev | 3 | M | - Repositori Git dengan branch `main`, `be`, `fe`<br>- Kerangka NestJS + React/Vue jalan via Docker<br>- README panduan setup tersedia |
+| **PB-01** | Setup repositori, struktur proyek, dan docker dev/staging | Tim Dev | 3 | M | - Repositori Git dengan branch `main`, `BE`, `FE`<br>- Kerangka NestJS + React Vite jalan via root `npm run dev`<br>- README panduan setup tersedia |
 | **PB-02** | Rancang skema database (ERD) dan migrasi data | Tim Dev | 5 | M | - ERD disetujui seluruh tim<br>- Migrasi MikroORM jalan dari nol tanpa error<br>- Relasi mendukung anonimitas penilai peer assessment |
 | **PB-03** | Sediakan seed script data sintetis (dummy data) | Tim Dev | 3 | M | - Seed script dapat dijalankan berulang<br>- Bebas dari nama/NIM/nilai riil |
-
-#### 📚 Epic E11 — Validasi Kebutuhan & Dokumentasi (9 SP)
-| ID | User Story | Role | SP | Pri. | Acceptance Criteria |
-|----|------------|------|:--:|:----:|---------------------|
-| **PB-45** | Wawancara dosen offline untuk validasi alur & rubrik | Tim Dev | 2 | M | - Panduan wawancara dibuat<br>- Rangkuman hasil wawancara selesai & temuan memperbarui PRD Bagian B |
-| **PB-46** | Sebarkan kuesioner anonim ke mahasiswa Informatika | Tim Dev | 2 | S | - Kuesioner dibagikan & bersifat anonim<br>- Hanya laporan data agregat yang dipublikasikan |
-| **PB-47** | Kajian literatur rumus peer assessment & faktor pengali | Tim Dev | 3 | S | - Minimal beberapa literatur ilmiah disitir<br>- Rumus acuan untuk FR-09 disepakati |
-| **PB-48** | Review acceptance criteria bersama dosen & update PRD | Tim Dev | 2 | M | - Bagian H PRD disetujui dosen<br>- PRD v0.2 terbit |
 
 #### 🔐 Epic E01 — Pengguna & Hak Akses (20 SP)
 | ID | User Story | Role | SP | Pri. | Acceptance Criteria |
@@ -107,22 +99,14 @@ flowchart TD
 | **PB-06** | Admin: CRUD akun dan manajemen peran | Admin | 5 | M | - Admin dapat CRUD akun & aktif/nonaktifkan user<br>- Akun nonaktif tidak bisa login |
 | **PB-07** | Admin: CRUD mata kuliah & pendaftaran peserta | Admin | 5 | M | - Admin membuat master mata kuliah<br>- Mahasiswa didaftarkan ke kelas<br>- Daftar peserta muncul di sisi dosen |
 
-### Deliverables Utama Sprint 1
-- [ ] Repo aktif (`main`, `be`, `fe`) + `docker-compose.yml` (NestJS + PostgreSQL)
-- [ ] ERD v1 + migration files MikroORM + seed script data dummy
-- [ ] Dokumen validasi wawancara dosen + formula faktor pengali hasil kajian literatur
-- [ ] PRD v0.2 yang telah disetujui
-- [ ] Modul Auth (JWT/Session) + NestJS Role Guards
-- [ ] Modul Admin untuk kelola akun, hak akses, dan mata kuliah
-
 ---
 
-## 🏫 SPRINT 2 — Kelas, Kelompok & Tahapan Progres
-**Epic yang Diselesaikan:** E02 (Kelas & Templat Proyek), E03 (Pembentukan Kelompok), E04 (Tahapan & Pemantauan Progres)  
+## 🏫 SPRINT 2 — Pengelolaan Kelas, Kelompok & Progres
+**Epic:** E02 (Kelas & Templat Proyek) + E03 (Pembentukan Kelompok) + E04 (Tahapan & Pemantauan Progres)  
 **Total Beban:** 14 User Stories | **57 Story Points**
 
 ### Sprint Goal
-> Dosen dapat membuat kelas dengan template project-based, membagi mahasiswa ke dalam kelompok (acak, mandiri, manual), serta mengelola tahapan proyek lengkap dengan pengumpulan luaran dan dasbor pemantauan.
+> Dosen dapat membuat kelas proyek PBL, membagi mahasiswa ke kelompok dengan 3 metode (acak, mandiri, manual), serta mengelola alur tahapan (milestone) proyek lengkap dengan dasbor monitoring pengumpulan.
 
 ### Backlog Sprint 2
 
@@ -130,12 +114,12 @@ flowchart TD
 | ID | User Story | Role | SP | Pri. | Acceptance Criteria |
 |----|------------|------|:--:|:----:|---------------------|
 | **PB-08** | Dosen: membuat kelas baru | Dosen | 3 | M | - Dosen input nama kelas & pilih mata kuliah<br>- Kelas tersimpan dan tampil di daftar kelas dosen |
-| **PB-09** | Dosen: inisiasi kelas dengan Project-Based Template | Dosen | 5 | M | - Memilih template PBL langsung mengisi alur tahapan awal<br>- Minimal ada 1 tahapan ber-deadline valid agar kelas aktif |
+| **PB-09** | Dosen: inisiasi kelas dengan Project-Based Template | Dosen | 5 | M | - Memilih template PBL langsung mengisi tahapan awal<br>- Minimal ada 1 tahapan ber-deadline valid agar kelas aktif |
 
 #### 👥 Epic E03 — Pembentukan Kelompok (19 SP)
 | ID | User Story | Role | SP | Pri. | Acceptance Criteria |
 |----|------------|------|:--:|:----:|---------------------|
-| **PB-10** | Dosen: konfigurasi metode pembagian & kapasitas tim (N) | Dosen | 2 | M | - Pilihan 3 metode (acak, mandiri, manual) tersedia<br>- Batasan N anggota divalidasi |
+| **PB-10** | Dosen: konfigurasi metode pembagian & kapasitas tim ($N$) | Dosen | 2 | M | - Pilihan 3 metode (acak, mandiri, manual) tersedia<br>- Batasan $N$ anggota divalidasi |
 | **PB-11** | Dosen: randomizer pembagian kelompok otomatis | Dosen | 5 | M | - Mahasiswa terdistribusi merata otomatis<br>- Tidak ada mahasiswa terdaftar ganda di >1 tim |
 | **PB-12** | Mahasiswa: self-enroll memilih slot kelompok mandiri | Mhs | 5 | M | - Mahasiswa memilih slot yang masih tersedia<br>- Aman dari race condition saat 2 mhs memilih slot terakhir bersamaan |
 | **PB-13** | Dosen: atur & pindahkan anggota kelompok manual | Dosen | 5 | M | - Dosen bebas menetapkan/memindahkan mahasiswa antar-tim<br>- Data langsung terupdate real-time |
@@ -147,35 +131,32 @@ flowchart TD
 | **PB-15** | Dosen: tambah tahapan (milestone) & deadline | Dosen | 5 | M | - Tahapan wajib memiliki nama & tenggat waktu valid<br>- Menjadi syarat kelas dapat berjalan |
 | **PB-16** | Dosen: edit, hapus, dan atur urutan tahapan | Dosen | 3 | M | - Milestone dapat diurutkan ulang<br>- Peringatan konfirmasi jika menghapus tahapan yang sudah ada file submission |
 | **PB-17** | Perwakilan tim: upload berkas/link tugas per tahapan | Mhs | 5 | M | - Mengunggah link/file mengubah status menjadi Submitted<br>- Terlihat seketika pada monitor dosen |
-| **PB-18** | Sistem: kalkulasi status tahapan otomatis | Dosen | 3 | M | - Status berubah: Belum Dikumpulkan, Submitted, atau Terlambat (lewat deadline) |
+| **PB-18** | Sistem: kalkulasi status tahapan otomatis | Dosen | 3 | M | - Status berubah: Belum Dikumpulkan, Submitted, atau Terlambat |
 | **PB-19** | Dosen: dasbor pemantauan matrix (Kelompok × Tahapan) | Dosen | 8 | M | - Grid kelompok × tahapan menampilkan status terkini<br>- Filter per tahapan/kelompok berjalan cepat |
 | **PB-20** | Dosen: beri catatan/umpan balik pengumpulan *(Could)* | Dosen | 3 | C | - Dosen dapat memberi komentar pada submission<br>- Mahasiswa dalam kelompok dapat membacanya |
 | **PB-21** | Mahasiswa: reminder deadline di dasbor *(Could)* | Mhs | 3 | C | - Notifikasi visual di dasbor mhs ketika tenggat mendekat |
 
-### Deliverables Utama Sprint 2
-- [ ] Fitur pembuatan kelas berbasis Project-Based Template
-- [ ] 3 mekanisme pembentukan kelompok (Random algorithm, Self-enroll with PostgreSQL locking, Manual assignment)
-- [ ] Halaman tim mahasiswa (restricted view)
-- [ ] Modul tahapan proyek (CRUD & reordering milestone)
-- [ ] Antarmuka penyerahan tugas (file/link upload)
-- [ ] Dasbor matriks pemantauan progres kelompok bagi dosen
-
 ---
 
-## ⭐ SPRINT 3 — Evaluasi, Penilaian & Kolaborasi
-**Epic yang Diselesaikan:** E06 (Rubrik & Penilaian Kelompok), E07 (Peer Assessment), E05 (Ruang Kolaborasi Kelompok)  
+## ⭐ SPRINT 3 — Kolaborasi, Rubrik & Peer Review
+**Epic:** E05 (Ruang Kolaborasi Kelompok) + E06 (Rubrik & Penilaian Kelompok) + E07 (Peer Assessment)  
 **Total Beban:** 11 User Stories | **41 Story Points**
 
 ### Sprint Goal
-> Dosen dapat membuat rubrik penilaian (validasi bobot 100%) dan menilai kelompok secara objektif. Mahasiswa dapat menilai kontribusi rekan tim melalui formulir peer assessment yang anonim, aman dari penilaian diri sendiri, dan idempoten (anti-duplikasi). Tim memiliki forum diskusi internal.
+> Tim mahasiswa memiliki forum diskusi khusus. Dosen dapat membuat rubrik kustom (validasi bobot 100%) dan menilai kelompok. Mahasiswa dapat mengisi peer assessment secara anonim, aman dari penilaian diri sendiri, dan idempoten (anti-duplikasi).
 
 ### Backlog Sprint 3
+
+#### 💬 Epic E05 — Ruang Kolaborasi Kelompok (5 SP)
+| ID | User Story | Role | SP | Pri. | Acceptance Criteria |
+|----|------------|------|:--:|:----:|---------------------|
+| **PB-22** | Mahasiswa & Dosen: forum diskusi khusus per tim | Mhs | 5 | S | - Thread posting dan balasan berurutan kronologis<br>- Hanya anggota kelompok tersebut dan dosen yang memiliki hak akses |
 
 #### 📝 Epic E06 — Rubrik & Penilaian Kelompok (17 SP)
 | ID | User Story | Role | SP | Pri. | Acceptance Criteria |
 |----|------------|------|:--:|:----:|---------------------|
 | **PB-23** | Dosen: buat rubrik kustom (kriteria, bobot, skala level) | Dosen | 5 | M | - Dosen dapat menambah/mengubah kriteria & deskripsi level<br>- Struktur rubrik tersimpan rapi |
-| **PB-24** | Sistem: validasi ketat total bobot rubrik tepat 100% | Dosen | 2 | M | - Penyimpanan berhasil HANYA jika total bobot tepat 100%<br>- Muncul alert error jika total < 100% atau > 100% |
+| **PB-24** | Sistem: validasi ketat total bobot rubrik tepat 100% | Dosen | 2 | M | - Penyimpanan berhasil HANYA jika total bobot tepat 100%<br>- Muncul alert error jika total ≠ 100% |
 | **PB-25** | Dosen: input nilai kelompok per kriteria rubrik | Dosen | 5 | M | - Form skor per kriteria sesuai level rubrik<br>- Dilarang menginput di luar batas skala |
 | **PB-26** | Sistem: hitung nilai agregat kelompok otomatis | Dosen | 3 | M | - Nilai kelompok = $\sum(\text{skor} \times \text{bobot})$<br>- Bersifat deterministik |
 | **PB-27** | Dosen: finalisasi & konfirmasi nilai kelompok | Dosen | 2 | M | - Nilai yang difinalisasi terkunci<br>- Perubahan setelah finalisasi tercatat di audit trail |
@@ -189,28 +170,14 @@ flowchart TD
 | **PB-31** | Sistem: pencegahan duplikasi data (idempoten & double-click) | Tim Dev | 5 | M | - Submit ganda ditolak di tingkat Database (`UNIQUE CONSTRAINT`)<br>- Tidak ada duplicate entries |
 | **PB-32** | Sistem: penjaminan anonimitas identitas penilai | Mhs | 3 | M | - UI yang dinilai sama sekali tidak menampilkan nama penilai<br>- Payload API ke frontend mahasiswa disanitasi tanpa info identitas penilai |
 
-#### 💬 Epic E05 — Ruang Kolaborasi Kelompok (5 SP)
-| ID | User Story | Role | SP | Pri. | Acceptance Criteria |
-|----|------------|------|:--:|:----:|---------------------|
-| **PB-22** | Mahasiswa & Dosen: forum diskusi khusus per tim | Mhs | 5 | S | - Thread posting dan balasan berurutan kronologis<br>- Hanya anggota kelompok tersebut dan dosen yang memiliki hak akses |
-
-### Deliverables Utama Sprint 3
-- [ ] Rubric builder interface dengan auto-calculate validator total bobot 100%
-- [ ] Form penilaian luaran kelompok oleh dosen berbasis rubrik
-- [ ] Modul scheduling periode peer assessment
-- [ ] Form input peer assessment mahasiswa dengan validasi backend ketat (anti-self rating, role check)
-- [ ] Proteksi database PostgreSQL (`UNIQUE(reviewer_id, reviewee_id, period_id)`)
-- [ ] Sanitizer API untuk proteksi privasi anonimitas penilai
-- [ ] Forum diskusi kelompok terisolasi
-
 ---
 
-## 🏆 SPRINT 4 — Nilai Akhir, Ekspor & Pengujian Total
-**Epic yang Diselesaikan:** E08 (Nilai Akhir Individu), E09 (Ekspor Rekapitulasi), E10 (Kualitas, Keamanan & Pengujian)  
-**Total Beban:** 12 User Stories | **47 Story Points**
+## 🏆 SPRINT 4 — Nilai Akhir & Ekspor Pelaporan
+**Epic:** E08 (Nilai Akhir Individu) + E09 (Ekspor Rekapitulasi)  
+**Total Beban:** 6 User Stories | **25 Story Points**
 
 ### Sprint Goal
-> Menghitung nilai akhir individu menggunakan faktor pengali kontribusi, menyediakan review dosen sebelum publikasi, ekspor data rekapitulasi ke format CSV, menyelesaikan seluruh automated testing, serta melakukan validasi usability walkthrough.
+> Sistem menghitung nilai akhir individu berdasarkan faktor kontribusi peer assessment dengan batasan konfigurasi dosen. Dosen dapat meninjau breakdown nilai, melakukan penyesuaian, mempublikasikan nilai ke mahasiswa, serta mengekspor seluruh rekap data ke format CSV.
 
 ### Backlog Sprint 4
 
@@ -228,45 +195,38 @@ flowchart TD
 | **PB-37** | Dosen: ekspor rekap progres dan submission kelompok ke CSV | Dosen | 3 | S | - File CSV berisi daftar kelompok, milestone, status pengumpulan, dan timestamp<br>- Hanya dapat diunduh oleh dosen |
 | **PB-38** | Dosen: ekspor rekap nilai kelompok & individu ke CSV | Dosen | 3 | S | - File CSV memuat nilai kelompok, indeks kontribusi, dan nilai akhir individu<br>- Angka 100% cocok dengan di database |
 
+---
+
+## 🧪 SPRINT 5 — Pengujian Mutu & Validasi Final
+**Epic:** E10 (Kualitas, Keamanan & Pengujian) + E11 (Validasi Kebutuhan & Dokumentasi)  
+**Total Beban:** 10 User Stories | **31 Story Points**
+
+### Sprint Goal
+> Memastikan seluruh alur sistem UC-01 s/d UC-07 lolos pengujian E2E, aturan bisnis memiliki automated unit test, race condition teruji aman, walkthrough usability terlaksana, serta seluruh dokumentasi capstone (laporan validasi, kuesioner mahasiswa, dan persetujuan dosen pada PRD) difinalisasi.
+
+### Backlog Sprint 5
+
 #### 🧪 Epic E10 — Kualitas, Keamanan & Pengujian (22 SP)
 | ID | User Story | Role | SP | Pri. | Acceptance Criteria |
 |----|------------|------|:--:|:----:|---------------------|
 | **PB-39** | Antarmuka web responsif (desktop & mobile) | Semua | 3 | M | - Seluruh tampilan halaman utama rapi diakses via layar HP maupun laptop |
-| **PB-40** | Automated unit test aturan bisnis kritis | Tim Dev | 5 | M | - Test suite NestJS (`npm test`) menguji: validasi rubrik 100%, rumus nilai individu, pencegahan skor >100, anti-duplikasi |
+| **PB-40** | Automated unit test aturan bisnis kritis | Tim Dev | 5 | M | - Test suite NestJS (`npm test`) menguji: validasi rubrik 100%, rumus nilai individu, batas skor 100, anti-duplikasi |
 | **PB-41** | Security test: pengujian hak akses matriks peran | Tim Dev | 3 | M | - Pengujian endpoint memastikan role Mahasiswa ditolak saat akses URL/API dosen/admin |
 | **PB-42** | Pengujian End-to-End (E2E) skenario UC-01 s/d UC-07 | Tim Dev | 5 | M | - Seluruh skenario UC-01 sampai UC-07 dijalankan dan semua acceptance criteria dinyatakan lulus |
 | **PB-43** | Concurrency test: race condition & double-click submission | Tim Dev | 3 | M | - Uji beban bersamaan pada self-enroll dan pengiriman peer assessment tidak menghasilkan anomali data |
 | **PB-44** | Walkthrough antarmuka dengan dosen & mahasiswa sukarela | Tim Dev | 3 | S | - Sesi evaluasi pengguna nyata dapat menyelesaikan pembuatan rubrik & peer review tanpa bimbingan tim teknis |
 
-### Deliverables Utama Sprint 4
-- [ ] Engine kalkulator nilai akhir individu dengan parameter konfigurasi dosen
-- [ ] Panel review & override nilai bagi dosen
-- [ ] Halaman rapor nilai akhir bagi mahasiswa (restricted view pribadi)
-- [ ] Fitur ekspor berkas CSV (rekap progres & rekap nilai akademik)
-- [ ] Desain responsif di semua halaman utama
-- [ ] Test suite automated (unit test & RBAC integration test)
-- [ ] Dokumen laporan hasil E2E testing dan walkthrough usability
-- [ ] 🎉 **Sistem siap presentasi capstone project**
+#### 📚 Epic E11 — Validasi Kebutuhan & Dokumentasi (9 SP)
+| ID | User Story | Role | SP | Pri. | Acceptance Criteria |
+|----|------------|------|:--:|:----:|---------------------|
+| **PB-45** | Rangkuman hasil wawancara dosen & validasi alur | Tim Dev | 2 | M | - Rangkuman wawancara dosen selesai & temuan memperbarui PRD Bagian B |
+| **PB-46** | Laporan hasil kuesioner mahasiswa Informatika | Tim Dev | 2 | S | - Kuesioner dibagikan & bersifat anonim<br>- Laporan data agregat dipublikasikan di laporan capstone |
+| **PB-47** | Laporan kajian literatur formula faktor pengali | Tim Dev | 3 | S | - Kajian literatur ilmiah terdokumentasi rapi sebagai landasan teoritis formula FR-09 |
+| **PB-48** | Review final bersama dosen pembimbing & rilis PRD disetujui | Tim Dev | 2 | M | - Bagian H PRD ditandatangani/disetujui dosen<br>- PRD versi final terbit |
 
 ---
 
-## ⚠️ Keputusan Kritis yang Wajib Diambil Sesuai Jadwal
+## 📝 Catatan Penting Tim (Mitigasi Alur Pengerjaan)
 
-| No | Topik Keputusan | Skenario Dampak | Target Sprint |
-|:--:|-----------------|-----------------|:-------------:|
-| 1 | **Formula Faktor Pengali Peer Assessment** | Menentukan implementasi matematis PB-34 | Selesai di **Sprint 1** (via PB-47) |
-| 2 | **Kebijakan Perwakilan Kelompok** | Apakah submit progres bebas siapa saja dalam tim atau ditunjuk ketua? | Selesai sebelum **Sprint 2** (PB-17) |
-| 3 | **Visibilitas Identitas Penilai ke Dosen** | Apakah dosen boleh melihat siapa menilai siapa, atau 100% anonim dari semua orang? | Selesai sebelum **Sprint 3** (PB-32) |
-| 4 | **Model Akumulasi Nilai** | Apakah nilai per tahapan diakumulasikan, atau tahapan hanya syarat & nilai diambil dari luaran akhir? | Selesai di **Sprint 1** (saat wawancara dosen PB-45) |
-
----
-
-## 📝 Definition of Done (DoD) per User Story
-
-Setiap User Story dalam setiap Sprint dinyatakan **SELESAI (Done)** jika:
-1. Seluruh butir **Acceptance Criteria** spesifik telah terverifikasi lulus.
-2. Kode telah digabungkan ke branch yang sesuai (`be` atau `fe`) melalui Pull Request dengan review minimal 1 rekan tim.
-3. Unit test otomatis untuk logika bisnis terkait sudah dibuat dan berstatus passing (`green`).
-4. Bebas dari bug kategori *blocker* atau *critical*.
-5. Dapat dijalankan secara konsisten pada environment Docker lokal.
-6. Catatan dokumentasi/README diperbarui bila ada konfigurasi baru.
+> [!TIP]
+> Walaupun **E11 secara formal masuk di Sprint 5** (bersamaan dengan penulisan laporan akhir capstone & pengujian E10), **rumus dasar peer assessment (PB-47) dan wawancara awal dosen (PB-45) sebaiknya didiskusikan secara informal lebih awal** sebelum pengerjaan Sprint 3 & 4. Dengan demikian, tim backend tidak perlu mengubah formula kalkulasi saat sudah masuk tahap akhir.
